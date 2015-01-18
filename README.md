@@ -1,5 +1,5 @@
-# AnyDoor #
-Swift with no pain
+# AnyDoor (任意门)#
+Swift with no pain （让Swift不再蛋痛）
 
 ![door](http://homepage.ntu.edu.tw/~b01302158/images/01.jpg)
 
@@ -165,3 +165,23 @@ will return Array<Byte>
 
     NSData.adReadFile("file path")
     
+Array and Dictionary with no pain
+-----------------------
+
+when you access a Dictionary or Array, you mostly thing to do is to fight with optional type not the data it self. Something like :
+
+    let dict = ["aDict": ["aString": "string"], "anArray":[1,2,3,4]]
+    let str:String = (dict["aDict"]! as Dictionary<String,String>)["aString"]!
+    let intvalue:Int = (dict["anArray"] as Array<Int>)[2]
+    
+It's hard to write and hard to read.
+
+So i wrapped the Array and Dictionary with class ADAccessor to make it easier.
+
+extension adJsonObject in String and NSData will return the ADAccessor object wrapped the data(Array or Dictionary)
+
+    let dict = ADAccessor(["aDict": ["aString": "string"], "anArray":[1,2,3,4]])
+    let str = dict["aDict"]["aString"].string
+    let intvalue:Int = dict["anArray"][2].int
+
+than it's friendly to write and read
