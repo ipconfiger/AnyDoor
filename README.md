@@ -154,7 +154,7 @@ will return Array<Byte>
 
     data.adUploadToQiniu("avatar.jpg",'access key', 'access secret', 'scope name').complete({(data, response, error)->Void in
         let returnJson = data.adJsonObject
-        let resourceKey:String = returnJson["key"].string
+        let resourceKey:String = returnJson["key"].val(String)
     })
 
 ###Safe NSData to a file###
@@ -181,7 +181,8 @@ So i wrapped the Array and Dictionary with class ADAccessor to make it easier.
 extension adJsonObject in String and NSData will return the ADAccessor object wrapped the data(Array or Dictionary)
 
     let dict = ADAccessor(["aDict": ["aString": "string"], "anArray":[1,2,3,4]])
-    let str = dict["aDict"]["aString"].string
-    let intvalue:Int = dict["anArray"][2].int
+    let str = dict["aDict"]["aString"].val(String)
+    let intvalue:Int = dict["anArray"][2].val(Int)
+    let intvalue:Int = dict["anArray"][2].val(NSNumber)
 
 than it's friendly to write and read
