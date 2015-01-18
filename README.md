@@ -68,7 +68,9 @@ if String is a absolute path of a file, you can delete the file like this:
 
 if the string is a key of public resouces in QiNiu Yun, you can get the file like:
 
-    "qi niu key".adQiniuFileData("your qiniu domain")
+    "qi niu key".adQiniuFileData("your qiniu domain").complete({(data, response, error)->Void in
+        data.adSaveTo('file path')
+    })
     
 ###Transform to NSURL###
 
@@ -148,5 +150,18 @@ if you got this NSData object,maybe from http lib, or file,you can do like:
     
 will return Array<Byte>
 
+###Upload File data to QiNiu Yun###
 
+    data.adUploadToQiniu("avatar.jpg",'access key', 'access secret', 'scope name').complete({(data, response, error)->Void in
+        let returnJson = data.adJsonObject
+        let resourceKey:String = returnJson["key"].string
+    })
 
+###Safe NSData to a file###
+
+    data.adSaveTo("file path")
+
+###Get a file###
+
+    NSData.adReadFile("file path")
+    
