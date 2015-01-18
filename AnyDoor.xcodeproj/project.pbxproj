@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E263E1A31A6B97990021128A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263E1A21A6B97990021128A /* AppDelegate.swift */; };
+		E263E1A51A6B97990021128A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263E1A41A6B97990021128A /* ViewController.swift */; };
+		E263E1A81A6B97990021128A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E263E1A61A6B97990021128A /* Main.storyboard */; };
+		E263E1AA1A6B97990021128A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E263E1A91A6B97990021128A /* Images.xcassets */; };
+		E263E1AD1A6B97990021128A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E263E1AB1A6B97990021128A /* LaunchScreen.xib */; };
+		E263E1B91A6B97990021128A /* AnyDoorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263E1B81A6B97990021128A /* AnyDoorTests.swift */; };
+		E263E1C41A6B9A450021128A /* Rinku.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263E1C31A6B9A450021128A /* Rinku.swift */; };
+		E263E1C71A6B9AAF0021128A /* AnyDoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263E1C51A6B9AAF0021128A /* AnyDoor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E263E1B31A6B97990021128A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E263E1951A6B97990021128A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E263E19C1A6B97990021128A;
+			remoteInfo = AnyDoor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E263E19D1A6B97990021128A /* AnyDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E263E1A11A6B97990021128A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E263E1A21A6B97990021128A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E263E1A41A6B97990021128A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E263E1A71A6B97990021128A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E263E1A91A6B97990021128A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E263E1AC1A6B97990021128A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E263E1B21A6B97990021128A /* AnyDoorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnyDoorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E263E1B71A6B97990021128A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E263E1B81A6B97990021128A /* AnyDoorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDoorTests.swift; sourceTree = "<group>"; };
+		E263E1C31A6B9A450021128A /* Rinku.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rinku.swift; sourceTree = "<group>"; };
+		E263E1C51A6B9AAF0021128A /* AnyDoor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDoor.swift; sourceTree = "<group>"; };
+		E263E1C61A6B9AAF0021128A /* bgHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bgHeader.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E263E19A1A6B97990021128A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E263E1AF1A6B97990021128A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E263E1941A6B97990021128A = {
+			isa = PBXGroup;
+			children = (
+				E263E19F1A6B97990021128A /* AnyDoor */,
+				E263E1B51A6B97990021128A /* AnyDoorTests */,
+				E263E19E1A6B97990021128A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E263E19E1A6B97990021128A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E263E19D1A6B97990021128A /* AnyDoor.app */,
+				E263E1B21A6B97990021128A /* AnyDoorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E263E19F1A6B97990021128A /* AnyDoor */ = {
+			isa = PBXGroup;
+			children = (
+				E263E1C21A6B9A010021128A /* SRC */,
+				E263E1A21A6B97990021128A /* AppDelegate.swift */,
+				E263E1A41A6B97990021128A /* ViewController.swift */,
+				E263E1A61A6B97990021128A /* Main.storyboard */,
+				E263E1A91A6B97990021128A /* Images.xcassets */,
+				E263E1AB1A6B97990021128A /* LaunchScreen.xib */,
+				E263E1A01A6B97990021128A /* Supporting Files */,
+			);
+			path = AnyDoor;
+			sourceTree = "<group>";
+		};
+		E263E1A01A6B97990021128A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E263E1A11A6B97990021128A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E263E1B51A6B97990021128A /* AnyDoorTests */ = {
+			isa = PBXGroup;
+			children = (
+				E263E1B81A6B97990021128A /* AnyDoorTests.swift */,
+				E263E1B61A6B97990021128A /* Supporting Files */,
+			);
+			path = AnyDoorTests;
+			sourceTree = "<group>";
+		};
+		E263E1B61A6B97990021128A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E263E1B71A6B97990021128A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E263E1C21A6B9A010021128A /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				E263E1C51A6B9AAF0021128A /* AnyDoor.swift */,
+				E263E1C61A6B9AAF0021128A /* bgHeader.h */,
+				E263E1C31A6B9A450021128A /* Rinku.swift */,
+			);
+			name = SRC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E263E19C1A6B97990021128A /* AnyDoor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E263E1BC1A6B97990021128A /* Build configuration list for PBXNativeTarget "AnyDoor" */;
+			buildPhases = (
+				E263E1991A6B97990021128A /* Sources */,
+				E263E19A1A6B97990021128A /* Frameworks */,
+				E263E19B1A6B97990021128A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnyDoor;
+			productName = AnyDoor;
+			productReference = E263E19D1A6B97990021128A /* AnyDoor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E263E1B11A6B97990021128A /* AnyDoorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E263E1BF1A6B97990021128A /* Build configuration list for PBXNativeTarget "AnyDoorTests" */;
+			buildPhases = (
+				E263E1AE1A6B97990021128A /* Sources */,
+				E263E1AF1A6B97990021128A /* Frameworks */,
+				E263E1B01A6B97990021128A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E263E1B41A6B97990021128A /* PBXTargetDependency */,
+			);
+			name = AnyDoorTests;
+			productName = AnyDoorTests;
+			productReference = E263E1B21A6B97990021128A /* AnyDoorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E263E1951A6B97990021128A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = liming;
+				TargetAttributes = {
+					E263E19C1A6B97990021128A = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					E263E1B11A6B97990021128A = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = E263E19C1A6B97990021128A;
+					};
+				};
+			};
+			buildConfigurationList = E263E1981A6B97990021128A /* Build configuration list for PBXProject "AnyDoor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E263E1941A6B97990021128A;
+			productRefGroup = E263E19E1A6B97990021128A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E263E19C1A6B97990021128A /* AnyDoor */,
+				E263E1B11A6B97990021128A /* AnyDoorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E263E19B1A6B97990021128A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E263E1A81A6B97990021128A /* Main.storyboard in Resources */,
+				E263E1AD1A6B97990021128A /* LaunchScreen.xib in Resources */,
+				E263E1AA1A6B97990021128A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E263E1B01A6B97990021128A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E263E1991A6B97990021128A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E263E1C71A6B9AAF0021128A /* AnyDoor.swift in Sources */,
+				E263E1A51A6B97990021128A /* ViewController.swift in Sources */,
+				E263E1C41A6B9A450021128A /* Rinku.swift in Sources */,
+				E263E1A31A6B97990021128A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E263E1AE1A6B97990021128A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E263E1B91A6B97990021128A /* AnyDoorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E263E1B41A6B97990021128A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E263E19C1A6B97990021128A /* AnyDoor */;
+			targetProxy = E263E1B31A6B97990021128A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E263E1A61A6B97990021128A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E263E1A71A6B97990021128A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E263E1AB1A6B97990021128A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E263E1AC1A6B97990021128A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E263E1BA1A6B97990021128A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E263E1BB1A6B97990021128A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E263E1BD1A6B97990021128A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnyDoor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AnyDoor/bgHeader.h";
+			};
+			name = Debug;
+		};
+		E263E1BE1A6B97990021128A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AnyDoor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AnyDoor/bgHeader.h";
+			};
+			name = Release;
+		};
+		E263E1C01A6B97990021128A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnyDoorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnyDoor.app/AnyDoor";
+			};
+			name = Debug;
+		};
+		E263E1C11A6B97990021128A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnyDoorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnyDoor.app/AnyDoor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E263E1981A6B97990021128A /* Build configuration list for PBXProject "AnyDoor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E263E1BA1A6B97990021128A /* Debug */,
+				E263E1BB1A6B97990021128A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E263E1BC1A6B97990021128A /* Build configuration list for PBXNativeTarget "AnyDoor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E263E1BD1A6B97990021128A /* Debug */,
+				E263E1BE1A6B97990021128A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E263E1BF1A6B97990021128A /* Build configuration list for PBXNativeTarget "AnyDoorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E263E1C01A6B97990021128A /* Debug */,
+				E263E1C11A6B97990021128A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E263E1951A6B97990021128A /* Project object */;
+}
