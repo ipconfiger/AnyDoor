@@ -96,32 +96,8 @@ public struct ADAccessor {
         return ADAccessor(v)
     }
 
-    /// Get wrapped String value
-    public var string:String {
-        get{
-            return self.value as String
-        }
-    }
-
-    /// Get wrapped Int value
-    public var int:Int{
-        get{
-            return Int(self.value as NSNumber)
-        }
-    }
-
-    /// Get wrapped Float value
-    public var float:Float{
-        get{
-            return Float(self.value as NSNumber)
-        }
-    }
-
-    /// Get wrapped Bool value
-    public var bool:Bool{
-        get{
-            return (self.value as Bool)
-        }
+    func val<T>(_:T.Type)->T{
+        return (value as T)
     }
 
     /// Get wrapped Array value
@@ -143,6 +119,16 @@ public struct ADAccessor {
         }
     }
 }
+
+/// Operator to repeat string "a"*5 return "aaaaa"
+func * (pt0: String, pt1: Int) -> String {
+    var arr:[String] = [pt0]
+    for i in 1..<pt1{
+        arr+=[pt0]
+    }
+    return "".join(arr)
+}
+
 
 extension String{
 
@@ -169,6 +155,13 @@ extension String{
             }
             let indexRange:Range<Int> = Range<Int>(start: startIdx,end: endIdx)
             return self.substringWithRange(Range<String.Index>(start: advance(self.startIndex, indexRange.startIndex), end: advance(self.startIndex, indexRange.endIndex)))
+        }
+    }
+
+    /// Get String length
+    public var length:Int {
+        get{
+            return countElements(self)
         }
     }
 
