@@ -118,6 +118,19 @@ public struct ADAccessor {
             return result
         }
     }
+
+    /// Check if value has the key
+    ///:params:key
+    ///:return:true for has key
+    func hasKey(key:String)->Bool{
+        if (self.value is Dictionary<String, AnyObject>){
+            if (self.value as Dictionary<String, AnyObject>)[key] != nil{
+                return true
+            }
+        }
+        return false
+    }
+
 }
 
 /// Operator to repeat string "a"*5 return "aaaaa"
