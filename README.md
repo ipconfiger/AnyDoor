@@ -46,3 +46,68 @@ will return 1 and if substring not in it, will return -1
 
 will return a wrapper object of the json Dictionary, we will talk about it later
 
+###Check File exists###
+
+if String is a absolute path of a file, you can check if it exists in file system
+
+    "path".adFileExists
+
+###Get file data###
+
+if String is a absolute path of a file, you can get NSData like this:
+
+    "path".adFileData
+
+###Delete file###
+
+if String is a absolute path of a file, you can delete the file like this:
+
+    "path".adFileDelete()
+
+###Get File in QiNiu Yun###
+
+if the string is a key of public resouces in QiNiu Yun, you can get the file like:
+
+    "qi niu key".adQiniuFileData("your qiniu domain")
+    
+###Transform to NSURL###
+
+if the string is an url, you can get NSURL object like this:
+
+    "http://#".adToURL()
+    
+###Transform to File NSURL###
+
+if the string is a file url, you can get NSURL object like this:
+
+    "file://#".adFileURL()
+    
+###Get absolute path string in system folder of a filename###
+
+if the string is a filename, you can get absolute path by this:
+
+    "voice.wav".adFileInFolderString(NSSearchPathDirectory.DocumentDirectory)
+    
+###Get NSURL in system folder of a filename###
+
+if the string is a filename, you can get NSURL by this:
+
+    "voice.wav".adFileInFolderURL(NSSearchPathDirectory.DocumentDirectory)
+    
+###Encrypt to urlsafe base64 string###
+
+    "abcdefg".adToUrlSafeBase64String()
+    
+will return a string encrypt to urlsafe base64
+
+###Decrypt an urlsafe base64 string to origin string###
+
+    "xafeWFrfrg==".adFromUrlSafeBase64String()
+    
+will return the origin string of it
+
+###HMAC hash a string with key###
+
+    "abcdefg".adHmacEncrptHex(HMACAlgorithm.sha1)
+    
+will return the hex string of hash result
