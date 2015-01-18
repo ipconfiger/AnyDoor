@@ -197,7 +197,7 @@ extension String{
     /// json dictionary wrapped by Accessor
     public var adJsonObject:ADAccessor{
         get{
-            return self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.adToJsonObject()
+            return self.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)!.adJsonObject
         }
     }
 
@@ -316,7 +316,7 @@ extension String{
         if (corner.count != 4){
             assertionFailure({ () -> String in
                 "Wrong argument, must be 4 but \(corner.count) input"
-            }())
+                }())
         }
         let img = UIImage(named: self)!
         return img.resizableImageWithCapInsets(UIEdgeInsetsMake(CGFloat(corner[0]), CGFloat(corner[1]), CGFloat(corner[2]), CGFloat(corner[3])))
@@ -327,13 +327,17 @@ extension String{
 extension NSData{
 
     /// get json dictionary wrapped by accessor object
-    func adToJsonObject()->ADAccessor{
-        return ADAccessor(NSJSONSerialization.JSONObjectWithData(self, options: NSJSONReadingOptions.AllowFragments, error: nil)!)
+    public var adJsonObject:ADAccessor{
+        get{
+            return ADAccessor(NSJSONSerialization.JSONObjectWithData(self, options: NSJSONReadingOptions.AllowFragments, error: nil)!)
+        }
     }
 
     /// to utf8 string
-    func adToUtf8String()->String{
-        return "\(NSString(data: self, encoding: NSUTF8StringEncoding))"
+    public var adUtf8String:String{
+        get{
+            return "\(NSString(data: self, encoding: NSUTF8StringEncoding))"
+        }
     }
 
     /// to url safe base64 string
@@ -376,5 +380,5 @@ extension NSData{
         let path = filename.adFileInFolderString(catalog)
         return NSData(contentsOfFile: path, options: NSDataReadingOptions.UncachedRead, error: nil)!
     }
-
+    
 }
