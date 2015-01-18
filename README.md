@@ -111,3 +111,42 @@ will return the origin string of it
     "abcdefg".adHmacEncrptHex(HMACAlgorithm.sha1)
     
 will return the hex string of hash result
+
+    "abcdefg".adHmacEncrptData(HMACAlgorithm.sha1)
+    
+will return the NSData object for furthor process
+
+###Get UIImage by name###
+
+    "avatar".adImage()
+    
+###Get resizableUIImage by name###
+
+    "background".adResizableImage(10, 20, 5, 3)
+
+Extension of NSData
+---------------------------
+a NSData extension
+
+###Get wrapped json object###
+
+if you got this NSData object,maybe from http lib, or file,you can do like:
+
+    data.adJsonObject
+
+###Get UTF8 String###
+
+    data.adUtf8String
+    
+###Get urlsafe base64 string###
+
+    data.adToUrlSafeB64String()
+    
+##Transform to a Array###
+
+    data.adAsArray(Byte)
+    
+will return Array<Byte>
+
+
+
