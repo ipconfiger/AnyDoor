@@ -3,11 +3,11 @@ Swift with no pain （让Swift不再蛋痛）
 
 ![door](http://homepage.ntu.edu.tw/~b01302158/images/01.jpg)
 
-Swift is easy to use, but sometimes get some with with it's strict type checking and optional type. How ever, we can extent origin types with extension, so i wrote some for String, NSData and a little wrapper for dictionary and array, make it easier to access items in dictionary or array
+Swift is easy to use, but sometimes get some pain with it's strict type checking and optional type. How ever, we can extent origin types with extension, so i wrote some for String, NSData and a little wrapper for dictionary and array, make it easier to access items in dictionary or array
 
 Http access depends on Rinku from <https://github.com/RuiAAPeres/Rinku> a very easy to use http lib.
 
-Because need import cocoon lib to support hmac algorithm, you need to add Objective-C bridge header file in project with next content:
+Because need import cocoa lib to support hmac algorithm, you need to add Objective-C bridge header file in project with next content:
 
     #import <CommonCrypto/CommonHMAC.h>
 
@@ -64,7 +64,7 @@ if String is a absolute path of a file, you can delete the file like this:
 
     "path".adFileDelete()
 
-###Get File in QiNiu Yun###
+###Get File in QiNiu Yun(七牛云存储)###
 
 if the string is a key of public resouces in QiNiu Yun, you can get the file like:
 
@@ -150,7 +150,7 @@ if you got this NSData object,maybe from http lib, or file,you can do like:
     
 will return Array<Byte>
 
-###Upload File data to QiNiu Yun###
+###Upload File data to QiNiu Yun(七牛云存储)###
 
     data.adUploadToQiniu("avatar.jpg",'access key', 'access secret', 'scope name').complete({(data, response, error)->Void in
         let returnJson = data.adJsonObject
