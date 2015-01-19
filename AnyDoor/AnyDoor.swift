@@ -236,6 +236,16 @@ public extension String{
         return Rinku.get(url)
     }
 
+
+
+    //#MARK: - URL extension
+    /// self as a YouPai Yun file key, get a Rinku object to fetch resource
+    func adYouPaiYunFileData(domain:String)->Rinku{
+        var url = "http://\(domain)/\(self)"
+        return Rinku.get(url)
+    }
+
+
     /// self as a url, to NSURL object
     func adToURL()->NSURL{
         return NSURL(string: self)!
@@ -312,6 +322,7 @@ public extension String{
     }
 
 
+    /// get md5 hash hex
     func adMD5Hex() -> String {
         let data = (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)
         let result = NSMutableData(length: Int(CC_MD5_DIGEST_LENGTH))
@@ -324,7 +335,6 @@ public extension String{
         for i in a {
             hash.appendFormat("%02x", i)
         }
-
         return hash
     }
 
@@ -380,16 +390,29 @@ public extension NSData{
     ///:params: filename, accessKey, accessSecret, scope
     ///:return: Rinku object
     func adUploadToQiniu(filename:String, accessKey:String, accessSecret:String, scope:String)->Rinku{
-        let policyStr = "{\"scope\":\"\(scope)\",\"deadline\":1421522367}"
-        NSLog("op:\(policyStr)")
+        let ts = Int(NSDate().timeIntervalSince1970) + 3600*12
+        let policyStr = "{\"scope\":\"\(scope)\",\"deadline\":\(ts)}"
         let encodedPutPolicy = policyStr.adToUrlSafeBase64String()
-        NSLog("ps:\(encodedPutPolicy)")
         let encodedSign = encodedPutPolicy.adHmacEncrptData(HMACAlgorithm.SHA1, key: accessSecret).adToUrlSafeB64String()
-        NSLog("sign:\(encodedSign)")
         let policyToken = ":".join([accessKey, encodedSign, encodedPutPolicy])
-        NSLog("tk:\(policyToken)")
         return Rinku.post("http://upload.qiniu.com").file(self, filefield: "file", filename: filename, extForm: ["token":policyToken, "key": filename])
     }
+
+
+    /// upload file to YouPai Yun
+    ///:params:filename, bucket, securyKey, ext-form
+    ///:return:Rinku object
+    func adUploadToYouPaiYun(filename:String, bucket:String, securyKey:String, form:Dictionary<String, AnyObject>)->Rinku{
+        let ts = Int(NSDate().timeIntervalSince1970) + 3600*12
+        let policy = "{\"bucket\":\"\(bucket)\",\"expiration\":\(ts),\"save-key\":\"\(filename)\"}"
+        let sign = "\(policy.adToUrlSafeBase64String())&\(securyKey)".adMD5Hex()
+        var params = ["bucket":bucket,"save-key":"\(filename)", "expiration":"\(ts)", "policy":policy.adToUrlSafeBase64String(), "signature":sign]
+        for (k, val) in form{
+            params.updateValue((val as String), forKey: k)
+        }
+        return Rinku.post("http://v0.api.upyun.com/\(bucket)").file(self, filefield: "file", filename: filename, extForm: params)
+    }
+
 
 
     /// save to system directory
