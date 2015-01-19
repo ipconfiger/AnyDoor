@@ -64,7 +64,7 @@ if String is a absolute path of a file, you can delete the file like this:
 
     "path".adFileDelete()
 
-###Get File in QiNiu Yun###
+###Get File in QiNiu Yun(七牛云存储)###
 
 if the string is a key of public resouces in QiNiu Yun, you can get the file like:
 
@@ -150,7 +150,7 @@ if you got this NSData object,maybe from http lib, or file,you can do like:
     
 will return Array<Byte>
 
-###Upload File data to QiNiu Yun###
+###Upload File data to QiNiu Yun(七牛云存储)###
 
     data.adUploadToQiniu("avatar.jpg",'access key', 'access secret', 'scope name').complete({(data, response, error)->Void in
         let returnJson = data.adJsonObject
