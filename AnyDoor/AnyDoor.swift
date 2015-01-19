@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// Sign method enum for hmac
-enum HMACAlgorithm {
+public enum HMACAlgorithm {
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
 
     func toCCHmacAlgorithm() -> CCHmacAlgorithm {
@@ -143,7 +143,7 @@ func * (pt0: String, pt1: Int) -> String {
 }
 
 
-extension String{
+public extension String{
 
     //#MARK: - slicing
 
@@ -311,6 +311,23 @@ extension String{
         return resultData
     }
 
+
+    func adMD5Hex() -> String {
+        let data = (self as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        let result = NSMutableData(length: Int(CC_MD5_DIGEST_LENGTH))
+        let resultBytes = UnsafeMutablePointer<CUnsignedChar>(result!.bytes)
+        CC_MD5(data!.bytes, CC_LONG(data!.length), resultBytes)
+
+        let a = UnsafeBufferPointer<CUnsignedChar>(start: resultBytes, count: result!.length)
+        let hash = NSMutableString()
+
+        for i in a {
+            hash.appendFormat("%02x", i)
+        }
+
+        return hash
+    }
+
     //#MARK: - Image extension
     /// self as a image name, return UIImage object
     func adImage()->UIImage{
@@ -330,7 +347,7 @@ extension String{
 
 }
 
-extension NSData{
+public extension NSData{
 
     /// get json dictionary wrapped by accessor object
     public var adJsonObject:ADAccessor{

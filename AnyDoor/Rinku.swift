@@ -12,7 +12,7 @@ import Foundation
 let RinkuPost : String = "POST"
 let RinkuGet : String = "GET"
 
-class Rinku {
+public class Rinku {
     
     let request : NSMutableURLRequest
         
