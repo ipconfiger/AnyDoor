@@ -7,7 +7,7 @@ Swift is easy to use, but sometimes get some pain with it's strict type checking
 
 Http access depends on Rinku from <https://github.com/RuiAAPeres/Rinku> a very easy to use http lib.
 
-Because need import cocoon lib to support hmac algorithm, you need to add Objective-C bridge header file in project with next content:
+Because need import cocoa lib to support hmac algorithm, you need to add Objective-C bridge header file in project with next content:
 
     #import <CommonCrypto/CommonHMAC.h>
 
