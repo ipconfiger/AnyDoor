@@ -3,6 +3,8 @@ Swift with no pain （让Swift不再蛋痛）
 
 ![door](http://homepage.ntu.edu.tw/~b01302158/images/01.jpg)
 
+>> what's new?  YouPaiYun(又拍云) support added to NSData extension
+
 Swift is easy to use, but sometimes get some pain with it's strict type checking and optional type. How ever, we can extent origin types with extension, so i wrote some for String, NSData and a little wrapper for dictionary and array, make it easier to access items in dictionary or array
 
 Http access depends on Rinku from <https://github.com/RuiAAPeres/Rinku> a very easy to use http lib.
@@ -14,6 +16,10 @@ Because need import cocoa lib to support hmac algorithm, you need to add Objecti
 Extension for String
 -----------------------
 a String extension
+
+###Operator for String###
+
+    let s = "a" * 5    // s = "aaaaa"
 
 ###Get substring by range:###
 
@@ -71,6 +77,15 @@ if the string is a key of public resouces in QiNiu Yun, you can get the file lik
     "qi niu key".adQiniuFileData("your qiniu domain").complete({(data, response, error)->Void in
         data.adSaveTo('file path')
     })
+
+###Get File in YouPai Yun(又拍云存储)###
+
+if the string is a key of public resouces in QiNiu Yun, you can get the file like:
+
+    "you pai key".adYouPaiFileData("your YouPai domain").complete({(data, response, error)->Void in
+        data.adSaveTo('file path')
+    })
+  
     
 ###Transform to NSURL###
 
@@ -152,10 +167,19 @@ will return Array<Byte>
 
 ###Upload File data to QiNiu Yun(七牛云存储)###
 
-    data.adUploadToQiniu("avatar.jpg",'access key', 'access secret', 'scope name').complete({(data, response, error)->Void in
+    data.adUploadToQiniu("avatar.jpg", accessKey:'access key', accessSecret:'access secret', scope:'scope name').complete({(data, response, error)->Void in
         let returnJson = data.adJsonObject
         let resourceKey:String = returnJson["key"].val(String)
     })
+
+###Upload File data to YouPai Yun(又拍云存储)###
+
+    data.adUploadToYouPaiYun("avatar.jpg",bucket:'bucket name', securyKey:'access secret', form:[:]).complete({(data, response, error)->Void in
+        let returnJson = data.adJsonObject
+    })
+
+more detail in : <http://docs.upyun.com/api/form_api/>
+
 
 ###Safe NSData to a file###
 
