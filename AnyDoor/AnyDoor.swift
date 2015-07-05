@@ -69,7 +69,7 @@ public struct ADAccessor {
     ///:params: index
     ///:return: Accessor wrap the item in array
     subscript(index:Int)->ADAccessor{
-        return ADAccessor((value as NSArray).objectAtIndex(index))
+        return ADAccessor((value as! NSArray).objectAtIndex(index))
     }
 
     /// Access range of aray item
@@ -77,7 +77,7 @@ public struct ADAccessor {
     ///:params: range object
     ///:return: Accessor array wrap the item in array
     subscript(range:NSRange)->Array<ADAccessor>{
-        let arr:NSArray = (value as NSArray).subarrayWithRange(range)
+        let arr:NSArray = (value as! NSArray).subarrayWithRange(range)
         //let result:NSMutableArray = NSMutableArray(capacity: arr.count)
         var result:Array<ADAccessor> = Array<ADAccessor>()
         for item:AnyObject in arr{
@@ -92,25 +92,25 @@ public struct ADAccessor {
     ///:params: any hashable object
     ///:return: Accessor wrap the item in dictionary
     subscript(index:AnyObject)->ADAccessor{
-        let v:AnyObject = (value as NSDictionary).objectForKey(index)!
+        let v:AnyObject = (value as! NSDictionary).objectForKey(index)!
         return ADAccessor(v)
     }
 
     func val<T>(_:T.Type)->T{
-        return (value as T)
+        return (value as! T)
     }
 
     /// Get wrapped Array value
     public var array:[Any]!{
         get{
-            return map((value as [AnyObject]), {ADAccessor($0)})
+            return map((value as! [AnyObject]), {ADAccessor($0)})
         }
     }
 
     /// Get wrapped dictionary value
     public var dictionary:Dictionary<String, ADAccessor>{
         get{
-            let dt:[String:AnyObject] = (value as [String:AnyObject])
+            let dt:[String:AnyObject] = (value as! [String:AnyObject])
             var result:Dictionary<String, ADAccessor> = Dictionary<String, ADAccessor>(minimumCapacity:dt.count)
             for (k, val) in dt{
                 result[k] = ADAccessor(val)
@@ -119,12 +119,16 @@ public struct ADAccessor {
         }
     }
 
-    /// Check if value has the key
-    ///:params:key
-    ///:return:true for has key
+    /**
+    check if a key in dictionary value
+
+    :param: key key of dictionary
+
+    :returns: Accessor object wrap the dictionary value
+    */
     func hasKey(key:String)->Bool{
         if (self.value is Dictionary<String, AnyObject>){
-            if (self.value as Dictionary<String, AnyObject>)[key] != nil{
+            if (self.value as! Dictionary<String, AnyObject>)[key] != nil{
                 return true
             }
         }
@@ -158,7 +162,7 @@ public extension String{
                     "Wrong argument, must 2 bug got \(range.count)"
                     }())
             }
-            let length: Int = countElements(self)
+            let length: Int = count(self)
             let startIdx = (range[0]<0 ? (length + range[0]) : range[0])
             let endIdx = (range[1]<0 ? (length + range[1]) : range[1])
             if (startIdx>endIdx){
@@ -174,7 +178,7 @@ public extension String{
     /// Get String length
     public var length:Int {
         get{
-            return countElements(self)
+            return count(self)
         }
     }
 
@@ -291,12 +295,13 @@ public extension String{
     /// get hmac hash hex string
     func adHmacEncrptHex(algorithm: HMACAlgorithm, key:String)->String{
         let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
-        let strLen = UInt(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let strLen = Int(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         let digestLen = algorithm.digestLength()
         let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
         let objcKey = key as NSString
         let keyStr = objcKey.cStringUsingEncoding(NSUTF8StringEncoding)
-        let keyLen = UInt(objcKey.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let keyLen = Int(objcKey.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+
 
         CCHmac(algorithm.toCCHmacAlgorithm(), keyStr, keyLen, str!, strLen, result)
         var hash = NSMutableString()
@@ -310,12 +315,12 @@ public extension String{
     /// get hmac hash NSData
     func adHmacEncrptData(algorithm: HMACAlgorithm, key:String)->NSData{
         let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
-        let strLen = UInt(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let strLen = Int(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         let digestLen = algorithm.digestLength()
         let result = UnsafeMutablePointer<CUnsignedChar>.alloc(digestLen)
         let objcKey = key as NSString
         let keyStr = objcKey.cStringUsingEncoding(NSUTF8StringEncoding)
-        let keyLen = UInt(objcKey.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let keyLen = Int(objcKey.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         CCHmac(algorithm.toCCHmacAlgorithm(), keyStr, keyLen, str!, strLen, result)
         let resultData:NSData = NSData(bytes: UnsafePointer<Void>(result), length: digestLen)
         return resultData
@@ -335,7 +340,7 @@ public extension String{
         for i in a {
             hash.appendFormat("%02x", i)
         }
-        return hash
+        return hash as String
     }
 
     //#MARK: - Image extension
@@ -408,7 +413,7 @@ public extension NSData{
         let sign = "\(policy.adToUrlSafeBase64String())&\(securyKey)".adMD5Hex()
         var params = ["bucket":bucket,"save-key":"\(filename)", "expiration":"\(ts)", "policy":policy.adToUrlSafeBase64String(), "signature":sign]
         for (k, val) in form{
-            params.updateValue((val as String), forKey: k)
+            params.updateValue((val as! String), forKey: k)
         }
         return Rinku.post("http://v0.api.upyun.com/\(bucket)").file(self, filefield: "file", filename: filename, extForm: params)
     }
